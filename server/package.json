@@ -1,0 +1,26 @@
+{
+  "name": "big-o-server",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "tree-sitter-wasms": "^0.1.13",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.15",
+    "web-tree-sitter": "^0.22.6"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "private": true
+}

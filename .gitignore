@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.vsix
+.vscode-test/
+intellij-plugin/build/
+intellij-plugin/.gradle/
+intellij-plugin/.intellijPlatform/
+intellij-plugin/.kotlin/

@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>dev.bigo.lens</id>
+    <name>Big O Lens</name>
+    <vendor>local</vendor>
+    <description><![CDATA[
+        Mostra a complexidade Big O estimada acima de cada função/método (Java, Kotlin, TypeScript, JavaScript).
+        🟢 boa · 🟡 aceitável · 🔴 cara. Clique na anotação para ver o motivo. Requer Node.js no PATH.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
+
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server id="bigO" name="Big O Lens" factoryClass="dev.bigo.lens.BigOServerFactory">
+            <description><![CDATA[Estimativa heurística de complexidade Big O.]]></description>
+        </server>
+        <fileNamePatternMapping patterns="*.java" serverId="bigO" languageId="java"/>
+        <fileNamePatternMapping patterns="*.kt;*.kts" serverId="bigO" languageId="kotlin"/>
+        <fileNamePatternMapping patterns="*.ts;*.mts;*.cts" serverId="bigO" languageId="typescript"/>
+        <fileNamePatternMapping patterns="*.tsx" serverId="bigO" languageId="typescriptreact"/>
+        <fileNamePatternMapping patterns="*.js;*.jsx;*.mjs;*.cjs" serverId="bigO" languageId="javascript"/>
+    </extensions>
+</idea-plugin>

@@ -1,0 +1,66 @@
+{
+  "name": "big-o-lens",
+  "displayName": "Big O Lens",
+  "description": "Mostra a complexidade Big O estimada acima de cada função/método (TS/JS, Java, Kotlin).",
+  "version": "0.1.0",
+  "publisher": "local",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Big O Lens",
+      "properties": {
+        "bigO.thresholds.goodMax": {
+          "type": "string",
+          "enum": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)",
+            "O(n²)",
+            "O(n³)",
+            "O(2ⁿ)"
+          ],
+          "default": "O(n)",
+          "description": "Maior complexidade considerada boa (🟢)."
+        },
+        "bigO.thresholds.warnMax": {
+          "type": "string",
+          "enum": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)",
+            "O(n²)",
+            "O(n³)",
+            "O(2ⁿ)"
+          ],
+          "default": "O(n log n)",
+          "description": "Maior complexidade considerada aceitável (🟡). Acima disso é 🔴."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "npm --prefix ../server run build && node build.mjs",
+    "package": "npm run build && vsce package --no-dependencies --skip-license --allow-missing-repository",
+    "test": "npm run build && node test/run.js"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "@types/vscode": "1.85",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.3"
+  }
+}

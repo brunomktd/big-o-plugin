@@ -1,0 +1,4 @@
+* text=auto
+intellij-plugin/gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
